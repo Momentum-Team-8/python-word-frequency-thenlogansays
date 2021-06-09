@@ -4,15 +4,24 @@ STOP_WORDS = [
     'will', 'with'
 ]
 
-praise = open(/Users/loganatkinson/momentum-assignments/python-word-frequency-thenlogansays/praise_song_for_the_day.txt)
-praise
+file = open('praise_song_for_the_day.txt')
+file
 
 for i in range(8):
     print(repr(praise.readline()))
 
+def clean_text(file):
+    """given text returns text all lowercase, no punctuation, and removes all stop words"""
+    text = praise.lower
+
+
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
+    readfile()
+
     pass
+
+
 
 
 if __name__ == "__main__":
