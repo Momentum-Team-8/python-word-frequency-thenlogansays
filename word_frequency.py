@@ -4,15 +4,26 @@ STOP_WORDS = [
     'will', 'with'
 ]
 
-file = open('praise_song_for_the_day.txt')
-file
+today = "one-today.txt"
+praise = "praise_song_for_the_day.txt"
+hill = "the-hill-we-climb.txt"
+
+def readfile(praise):
+    """given a file opens and reads file"""
+    file = open(praise)
 
 for i in range(8):
-    print(repr(praise.readline()))
+    print(repr(file.readline()))
 
 def clean_text(file):
     """given text returns text all lowercase, no punctuation, and removes all stop words"""
-    text = praise.lower
+    text = file.lower
+    all_letters = "abcdefghijklmopqrstuvwxyz"
+    text_to_keep = ""
+    for char in text:
+        if char in all_letters:
+            text_to_keep += char
+    return text_to_keep
 
 
 def print_word_freq(file):
