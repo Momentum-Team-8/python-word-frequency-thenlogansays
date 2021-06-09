@@ -4,6 +4,11 @@ STOP_WORDS = [
     'will', 'with'
 ]
 
+praise = open(/Users/loganatkinson/momentum-assignments/python-word-frequency-thenlogansays/praise_song_for_the_day.txt)
+praise
+
+for i in range(8):
+    print(repr(praise.readline()))
 
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
