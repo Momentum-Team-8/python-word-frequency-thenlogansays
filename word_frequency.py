@@ -30,6 +30,7 @@ def print_word_freq(file):
         elif word not in count_dict:
             count_dict[word] = 1
     
+    file.close()
     print(count_dict)
 
 
