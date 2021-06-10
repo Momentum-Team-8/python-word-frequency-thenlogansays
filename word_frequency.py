@@ -1,38 +1,36 @@
+import string
+
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
     'will', 'with'
 ]
 
-today = "one-today.txt"
-praise = "praise_song_for_the_day.txt"
-hill = "the-hill-we-climb.txt"
-
-def readfile(praise):
-    """given a file opens and reads file"""
-    file = open(praise)
-
-for i in range(8):
-    print(repr(file.readline()))
-
-def clean_text(file):
-    """given text returns text all lowercase, no punctuation, and removes all stop words"""
-    text = file.lower
-    all_letters = "abcdefghijklmopqrstuvwxyz"
-    text_to_keep = ""
-    for char in text:
-        if char in all_letters:
-            text_to_keep += char
-    return text_to_keep
-
-
 def print_word_freq(file):
-    """Read in `file` and print out the frequency of words in that file."""
-    readfile()
+    file = open('one-today.txt', 'r')
+    text = file.read().lower().split()
+    #print(text)
 
-    pass
+    #all_letters = "abcdefghijklmopqrstuvwxyz"
+    #text_to_keep = []
 
+    for char in text:
+        table = char.maketrans( "", "", string.punctuation)
+        char.translate(table)
+    #print(text)
 
+    count_dict = {}
+
+    for word in text:
+        
+        if word in STOP_WORDS:
+            text.remove(word)
+        elif word in count_dict:
+            count_dict[word] = count_dict[word] +1
+        elif word not in count_dict:
+            count_dict[word] = 1
+    
+    print(count_dict)
 
 
 if __name__ == "__main__":
